@@ -1,0 +1,86 @@
+.navbar.is-talladita {
+  background-color: #6b2b8b;
+  color: #fff;
+}
+
+.navbar.is-talladita .navbar-brand > .navbar-item,
+.navbar.is-talladita .navbar-brand .navbar-link {
+  color: #fff;
+}
+
+.navbar.is-talladita .navbar-brand > a.navbar-item:hover, .navbar.is-talladita .navbar-brand > a.navbar-item.is-active,
+.navbar.is-talladita .navbar-brand .navbar-link:hover,
+.navbar.is-talladita .navbar-brand .navbar-link.is-active {
+  background-color: #7b3a9c;
+  color: #fff;
+}
+
+.navbar.is-talladita .navbar-brand .navbar-link::after {
+  border-color: #fff;
+}
+
+.navbar.is-talladita .navbar-burger {
+  color: #fff;
+}
+
+@media screen and (min-width: 1088px) {
+  .navbar.is-talladita .navbar-start > .navbar-item,
+  .navbar.is-talladita .navbar-start .navbar-link,
+  .navbar.is-talladita .navbar-end > .navbar-item,
+  .navbar.is-talladita .navbar-end .navbar-link {
+    color: #fff;
+  }
+  .navbar.is-talladita .navbar-start > a.navbar-item:hover, .navbar.is-talladita .navbar-start > a.navbar-item.is-active,
+  .navbar.is-talladita .navbar-start .navbar-link:hover,
+  .navbar.is-talladita .navbar-start .navbar-link.is-active,
+  .navbar.is-talladita .navbar-end > a.navbar-item:hover,
+  .navbar.is-talladita .navbar-end > a.navbar-item.is-active,
+  .navbar.is-talladita .navbar-end .navbar-link:hover,
+  .navbar.is-talladita .navbar-end .navbar-link.is-active {
+    background-color: #7b3a9c;
+    color: #fff;
+  }
+  .navbar.is-talladita .navbar-start .navbar-link::after,
+  .navbar.is-talladita .navbar-end .navbar-link::after {
+    border-color: #fff;
+  }
+  .navbar.is-talladita .navbar-item.has-dropdown:hover .navbar-link,
+  .navbar.is-talladita .navbar-item.has-dropdown.is-active .navbar-link {
+    background-color: #7b3a9c;
+    color: #fff;
+  }
+  .navbar.is-talladita .navbar-dropdown a.navbar-item.is-active {
+    background-color: #6b2b8b;
+    color: #fff;
+  }
+}
+
+.hero-body {
+  width: 100%;
+  height: 80vh;
+  background-image: url("../../assets/images/mujeres-slider-ropa_m.jpg");
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 768px) {
+  .hero-body {
+    background-image: url("../../assets/images/mujeres-slider-ropa_d.jpg");
+    height: 85vh;  
+  }
+}
+
+.is-radius {
+  border-radius: 5px;
+}
+
+.filters-box {
+  width: 100%;
+
+}
+
+.showinline {
+  margin: 0;
+  display: inline-block;
+}
