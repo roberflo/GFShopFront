@@ -6,6 +6,8 @@
     <title>Talladita.com | La tienda en linea de ropa y accesorios</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">    
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/bulma-badge.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/bulma-ribbon.min.css" />
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   </head>
   <body>
@@ -30,13 +32,13 @@
                 <div class="navbar-menu">
                   <div class="navbar-start">
                     <a class="navbar-item" href="https://bulma.io/">
-                       Mujeres 
+                      Mujeres 
                     </a>
                     <a class="navbar-item" href="https://bulma.io/">
                         Accesorios
                     </a>                    
                     <a class="navbar-item" href="https://bulma.io/">
-                        Juvenil
+                        Chicas
                     </a>  
                     <a class="navbar-item" href="https://bulma.io/">
                         Curvy
@@ -145,19 +147,27 @@
                                 <div class="media-content">
                                     <a href="#">
                                         <p class="title is-5">{{product.Name}}</p>
-                                        <p class="item-price">{{"$ "+ product.Price}}</p>
+                                        <p class="item-price">{{product.Price}}</p>
                                     </a>
+                                        <p class="is-small">{{ product.Stock }} Stock</p>
+                                        <p class="item-price">{{ product.Category }}</p>                                    
                                 </div>
                               </div>
                           
                               <div class="media-right">                                
-                                <p class="field">
-                                    <a class="button is-rounded is-danger">
-                                                <span class="icon is-small">
-                                                  <i class="fas fa-shopping-cart"></i>
-                                                </span>
-                                    </a>                                    
-                                </p>
+                                <div class="columns">
+                                  <div class="column">
+                                      <button class="button is-rounded is-info badge" :data-badge="product.Likes"><i class="fas fa-thumbs-up"></i> </button>
+                                  </div>
+                                  <div class="column">
+                                      <a class="button is-rounded is-danger">
+                                          <span class="icon is-small">
+                                            <i class="fas fa-shopping-cart"></i>                                      
+                                          </span>
+                                        </a> 
+                                  </div>
+                                </div>                                                                                                
+                                
                               </div>
                             </div>
                           </div>
