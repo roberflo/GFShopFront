@@ -73,13 +73,13 @@
                             <div class="columns">
                                     <div class="column">
                                             <div class="has-text-centered">
-                                                    <h1 class="title">30% Off este fin de semana en toda la tienda. </h1>
+                                                    <h1 class="title" style="font-size: 5rem;">30% Off este fin de semana en toda la tienda. </h1>
                                             </div>                                      
                                     </div>
                                     <div class="column">
 
                                         <div class="has-text-centered">
-                                            <a class="button is-primary is-outlined is-large">Comprar en Línea</a>   
+                                            <a href="tel:77372990" class="button is-primary is-outlined is-large">Llamanos 77372990</a>   
                                         </div>                                   
                                     </div>
                                     
@@ -137,6 +137,10 @@
             <div class="column is-one-quarter" v-for="product in filteredItems">
         
                     <div class="card is-radius">
+                      <div class="box has-ribbon">
+                          <div class="ribbon is-warning">{{ product.Category }}</div>
+                            
+                                                 
                             <div class="card-image">
                               <figure class="image is-4by3">
                                 <img v-bind:src="product.FeaturedImage" alt="Placeholder image">
@@ -147,10 +151,16 @@
                                 <div class="media-content">
                                     <a href="#">
                                         <p class="title is-5">{{product.Name}}</p>
-                                        <p class="item-price">$ {{product.Price|currency}}</p>
                                     </a>
+                                         
+                                  <div class="columns">
+                                    <div class="column">
+                                        <p class="item-price">$ {{product.Price}}</p>
+                                    </div>
+                                    <div class="column">
                                         <p class="is-small">{{ product.Stock }} Stock</p>
-                                        <p class="item-price">{{ product.Category }}</p>                                    
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                           
@@ -170,6 +180,8 @@
                                 
                               </div>
                             </div>
+                          </div> 
+                          </div>
                           </div>
                 
             </div>
