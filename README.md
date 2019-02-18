@@ -10,6 +10,6 @@ http://talladita.com/
 # Trello Dashboard 
 https://trello.com/b/OMwJTxyU/store-api-challenge
 
-Happy to see your improvements
+# Happy to see your improvements
 
 HAPPY CODING!
