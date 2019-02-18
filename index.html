@@ -10,7 +10,10 @@
   </head>
   <body>
 
-        <nav class="navbar is-talladita">
+    <div id="app" name="app">
+
+
+  <nav class="navbar is-talladita">
                 <div class="navbar-brand">
                   <a class="navbar-item" href="./">
                     
@@ -27,7 +30,7 @@
                 <div class="navbar-menu">
                   <div class="navbar-start">
                     <a class="navbar-item" href="https://bulma.io/">
-                      Mujeres
+                      Mujeres 
                     </a>
                     <a class="navbar-item" href="https://bulma.io/">
                         Accesorios
@@ -60,10 +63,10 @@
                       </div>
                     </div>
                   </div>
-                </div>
-              </nav>
+                
+  </nav>
               
-              <section class="hero is-info is-medium is-bold">
+  <section class="hero is-info is-medium is-bold">
                     <div class="hero-body">
                             <div class="columns">
                                     <div class="column">
@@ -83,7 +86,7 @@
                         
 
                     </div>
-                </section>              
+  </section>              
 
 
   <section class="section">
@@ -91,7 +94,7 @@
 
             <div class="content">
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input is-large" type="search">
+                        <input class="input is-large" type="search" v-model="search">
                         <span class="icon is-medium is-left">
                             <i class="fa fa-search"></i>
                         </span>                       
@@ -104,22 +107,22 @@
             </h1>
                         <div class="field is-grouped">
                             <p class="control">
-                              <a class="button is-primary is-outlined">
+                              <a id="Price" class="button is-primary is-outlined" v-on:click="sortBy = 'Price'">
                                 Precio
                               </a>
                             </p>
                             <p class="control">
-                              <a class="button is-link is-outlined">
+                              <a id="Likes" class="button is-link is-outlined"  v-on:click="sortBy = 'Likes'">
                                 Likes
                               </a>
                             </p>
                             <p class="control">
-                              <a class="button is-danger is-outlined">
+                              <a id="Stock" class="button is-danger is-outlined"  v-on:click="sortBy = 'Stock'">
                                 Stock
                               </a>
                             </p>
                             <p class="control">
-                                <a class="button is-warning is-outlined">
+                                <a id ="Category" class="button is-warning is-outlined" v-on:click="sortBy = 'Category'">
                                     Categoria
                                 </a>
                             </p>            
@@ -129,20 +132,20 @@
       <hr>
       
         <div class="columns">
-            <div class="column is-one-quarter">
+            <div class="column is-one-quarter" v-for="product in filteredItems">
         
                     <div class="card is-radius">
                             <div class="card-image">
                               <figure class="image is-4by3">
-                                <img src="assets/images/blusa1.jpg" alt="Placeholder image">
+                                <img v-bind:src="product.FeaturedImage" alt="Placeholder image">
                               </figure>
                             </div>
                             <div class="card-content">
                               <div class="media">                                
                                 <div class="media-content">
                                     <a href="#">
-                                        <p class="title is-5">Blusa purpura con flecos</p>
-                                        <p class="item-price">$12.99</p>
+                                        <p class="title is-5">{{product.Name}}</p>
+                                        <p class="item-price">{{product.Price}}</p>
                                     </a>
                                 </div>
                               </div>
@@ -165,7 +168,7 @@
     </div>
   </section>
 
-
+    </div>
     <footer class="footer">
         <div class="content has-text-centered">
           <p>
@@ -174,5 +177,42 @@
         </div>
     </footer>
   
+
+  <!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+  var baseUrl = 'http://talladita.azurewebsites.net/';
+  var app = new Vue({
+    el: '#app',
+    data: {
+      products: [],
+      search:'',
+      sortBy:'Name'   
+  },
+  created: function () {
+    
+
+    fetch(baseUrl+"api/products")
+    .then((resp) => resp.json()) // Transform the data into json
+    .then(function(data) {
+      console.log(data);
+       app.products = data
+      })
+    
+    
+  },
+  computed: {
+    filteredItems: function () {
+      return this.products.filter((item) => {
+        return (this.search.length === 0 || item.Name.toUpperCase().includes(this.search.toUpperCase())) 
+      }).sort((a, b) => { 
+        return a[this.sortBy].toString().localeCompare(b[this.sortBy].toString())
+      })
+    }
+  }
+})
+</script>
   </body>
 </html>
